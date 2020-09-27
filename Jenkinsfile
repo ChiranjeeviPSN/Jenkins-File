@@ -1,16 +1,23 @@
 pipeline{
     agent any
+    
+    options{
+        skipStagesAfterUnstable()
+    }
+    
     stages{
         stage('Build')
         {
             steps{
-                 echo "Building"
+                sh 'make'
+                echo "Building"
         }
         }
         
         stage('Test')
         {
             steps{
+                sh 'make check'
             echo "Testing"
             }
         }
@@ -18,6 +25,7 @@ pipeline{
         stage('Deploy')
         {
             steps{
+                sh 'make publish'
             echo "Deploying"
             }
         }
