@@ -9,7 +9,7 @@ pipeline{
         stage('Build')
         {
             steps{
-                sh 'make'
+                
                 echo "Building"
         }
         }
@@ -17,7 +17,7 @@ pipeline{
         stage('Test')
         {
             steps{
-                sh 'make check'
+                
             echo "Testing"
             }
         }
@@ -25,7 +25,7 @@ pipeline{
         stage('Deploy')
         {
             steps{
-                sh 'make publish'
+                
             echo "Deploying"
             }
         }
